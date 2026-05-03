@@ -1,4 +1,5 @@
 import json
+from datetime import date, datetime
 
 
 def load_entries():
@@ -10,3 +11,11 @@ def load_entries():
 def save_entries(entries):
     with open("journal.json", "w") as file:
         json.dump(entries, file)
+
+
+def add_entries():
+    entry_title = input("whats the title? \n > ")
+    entry_content = input("whats today's toughts? \n > ")
+    formatted_time = date.today().strftime("%d-%m-%Y")
+    entries = {"date": formatted_time, "title": entry_title, "journal": entry_content}
+    return entries
