@@ -19,3 +19,10 @@ def add_entries():
     formatted_time = date.today().strftime("%d-%m-%Y")
     entries = {"date": formatted_time, "title": entry_title, "journal": entry_content}
     return entries
+
+
+def view_entries(entries):
+    for entry in entries:
+        print(
+            f"Date: {entry['date']} \n Title: {entry['title']} \n Journal: {entry['journal']}"
+        )
