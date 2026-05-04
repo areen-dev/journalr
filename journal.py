@@ -1,11 +1,15 @@
 import json
-from datetime import date, datetime
+from datetime import date
+from json.decoder import JSONDecodeError
 
 
 def load_entries():
-    with open("journal.json", "r") as file:
-        content = json.load(file)
-    return content
+    try:
+        with open("journal.json", "r") as file:
+            content = json.load(file)
+        return content
+    except FileNotFoundError, JSONDecodeError:
+        return []
 
 
 def save_entries(entries):
