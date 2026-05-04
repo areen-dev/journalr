@@ -26,3 +26,13 @@ def view_entries(entries):
         print(
             f"Date: {entry['date']} \n Title: {entry['title']} \n Journal: {entry['journal']}"
         )
+
+
+def search_entries(entries, keyword):
+    for entry in entries:
+        if (
+            keyword in entry["title"]
+            or keyword in entry["journal"]
+            or keyword in entry["date"]
+        ):
+            print(entry)
